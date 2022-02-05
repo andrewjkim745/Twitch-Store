@@ -1,18 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardHeader, MDBCardText, MDBCardImage, MDBBtn, MDBRipple } from 'mdb-react-ui-kit';
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
-export default function Card({src, title}) {
+export default function Card({src, title, onLoad, loaded}) {
   return (
     <MDBCard>
       <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
-        <MDBCardImage src={src} fluid alt='...' />
+        <MDBCardImage onLoad={onLoad} src={src} fluid alt='...' />
         <a>
           <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}></div>
         </a>
       </MDBRipple>
       <MDBCardBody style ={{ width: 200, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>
-        <MDBCardTitle>{title}</MDBCardTitle>
-        <MDBBtn href='#'>Button</MDBBtn>
+        <MDBCardTitle>{title || <Skeleton/>}</MDBCardTitle>
+        {loaded ? <MDBBtn href='#'></MDBBtn> : <Skeleton/>}
       </MDBCardBody>
     </MDBCard>
   );

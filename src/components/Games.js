@@ -8,6 +8,7 @@ export default function Games() {
 
 
     const [ games, setGames ] = useState([]);
+    const [loaded, setLoaded] = useState(false)
     const [ token, setToken ] = useState('');
     const [ done, setDone ] = useState(false)
 
@@ -63,14 +64,17 @@ export default function Games() {
         <>
         <div class='d-flex flex-column align-items-center mt-5'>
         <div class="container">
+            <h1 class='text-align-center'>Top 20 games on Twitch</h1>
             <div class='row'>
             {games.map(game => {
-                
                 return (
                     <div class='col'>
                     <Card
+                    onLoad={()=>setLoaded(true)}
                     src={game.box_art_url}
-                    title={game.name}
+                    title={loaded ? game.name : null}
+                    buttonName={loaded ? 'View' : null}
+                    loaded={loaded}
                     />
                     </div>
                 )
