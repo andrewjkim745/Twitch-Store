@@ -6,7 +6,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 export default function Card({src, title, onLoad, loaded}) {
   return (
     <MDBCard>
-      <Skeleton width={400} height={550} style={loaded ? {display: 'none'} : {}}/>
+      <Skeleton width={300} height={300} style={loaded ? {display: 'none'} : {}}/>
       <MDBRipple style={loaded ? {} : {display: 'none'}} rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
         <MDBCardImage onLoad={onLoad} src={src} fluid alt='...' />
         <a>
@@ -15,7 +15,8 @@ export default function Card({src, title, onLoad, loaded}) {
       </MDBRipple>
       <MDBCardBody style ={{ width: 200, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>
         <MDBCardTitle>{title || <Skeleton/>}</MDBCardTitle>
-        {loaded ? <MDBBtn href='#'></MDBBtn> : <Skeleton/>}
+        <Skeleton style={loaded ? {display: 'none'} : {}}/>
+        <MDBBtn style={loaded ? {} : {display: 'none'}}>View</MDBBtn>
       </MDBCardBody>
     </MDBCard>
   );

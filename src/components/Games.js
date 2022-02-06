@@ -74,7 +74,7 @@ export default function Games() {
                     src={game.box_art_url}
                     title={loaded ? game.name : null}
                     buttonName={loaded ? 'View' : null}
-                    loaded={loaded}
+                    loaded={false}
                     />
                     </div>
                 )
