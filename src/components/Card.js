@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
+import { Link } from "react-router-dom";
 import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardHeader, MDBCardText, MDBCardImage, MDBBtn, MDBRipple } from 'mdb-react-ui-kit';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
-export default function Card({src, title, onLoad, loaded}) {
+export default function Card({src, title, onLoad, loaded, game}) {
   return (
     <MDBCard>
       <Skeleton width={300} height={300} style={loaded ? {display: 'none'} : {}}/>
@@ -16,7 +17,7 @@ export default function Card({src, title, onLoad, loaded}) {
       <MDBCardBody style ={{ width: 200, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>
         <MDBCardTitle>{title || <Skeleton/>}</MDBCardTitle>
         <Skeleton style={loaded ? {display: 'none'} : {}}/>
-        <MDBBtn style={loaded ? {} : {display: 'none'}}>View</MDBBtn>
+        <Link to={`/game/${game.id}`}><MDBBtn style={loaded ? {} : {display: 'none'}}>View Game</MDBBtn></Link>
       </MDBCardBody>
     </MDBCard>
   );

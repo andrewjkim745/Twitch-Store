@@ -62,7 +62,7 @@ export default function Games() {
     return (
 
         <>
-        <div class='d-flex flex-column align-items-center mt-5'>
+        <div  class='d-flex flex-column align-items-center mt-5'>
         <div class="container">
             <h1 class='text-align-center'>Top 20 games on Twitch</h1>
             <div class='row'>
@@ -70,11 +70,13 @@ export default function Games() {
                 return (
                     <div class='col'>
                     <Card
+                    key={game.id}
                     onLoad={()=>setLoaded(true)}
                     src={game.box_art_url}
                     title={loaded ? game.name : null}
                     buttonName={loaded ? 'View' : null}
-                    loaded={false}
+                    loaded={loaded}
+                    game={game}
                     />
                     </div>
                 )

@@ -1,7 +1,7 @@
 
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import Home from './screens/Home'
-import About from './screens/About'
+import Games from './Games'
+import SingleGame from "./SingleGame";
 import Aos from 'aos'
 import 'aos/dist/aos.css'
 import React, {useEffect} from "react";
@@ -17,9 +17,9 @@ export const Router = () => {
         <BrowserRouter>
             <Routes>
                 <Route path='/'
-                    element={<Home />} />
-                <Route path='/about'
-                    element={<About />} />
+                    element={<Games/>} />
+                <Route path='/game/:id'
+                    element={<SingleGame/>}/>
             </Routes>
         </BrowserRouter>
     )
