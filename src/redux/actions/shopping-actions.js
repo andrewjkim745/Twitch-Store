@@ -1,4 +1,4 @@
-import * as actionTypes from './shopping-types'
+import * as actionTypes from '../constants/shopping-types'
 
 
 export const addToCart = (gameID) => {
