@@ -1,4 +1,8 @@
-export const getTopGames = (state = { games: {}}, action) => {
+import * as actionTypes from '../constants/game-types'
+
+
+
+export const getTopGamesReducer = (state = { games: {}}, action) => {
     switch(action.type) {
         case actionTypes.GET_GAMES_REQUEST: 
         return {
@@ -24,7 +28,7 @@ export const getTopGames = (state = { games: {}}, action) => {
     }
 }
 
-export const getGameDetails = (state = { game: {}}, action) => {
+export const getGameDetailsReducer = (state = { game: {}}, action) => {
     switch(action.type) {
         case actionTypes.GET_GAME_DETAILS_REQUEST: 
         return {

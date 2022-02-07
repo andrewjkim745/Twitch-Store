@@ -1,9 +1,11 @@
 import { combineReducers } from "redux";
-import shopReducer from "./reducers/shopping-reducer";
+import { shopReducer } from './reducers/shopping-reducer'
+import { getTopGamesReducer, getGameDetailsReducer } from "./reducers/game-reducer";
 
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
     shop: shopReducer,
+    getTopGames: getTopGamesReducer,
+    getGameDetails: getGameDetailsReducer
 });
 
 
-export default rootReducer;
