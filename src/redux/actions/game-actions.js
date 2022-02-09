@@ -16,7 +16,7 @@ export const getTopGames = () => async (dispatch) => {
             })
         const token = await authtoken.json()
         console.log(token.access_token)
-        const response = await fetch('https://api.twitch.tv/helix/games/top',
+        const response = await fetch('https://api.twitch.tv/helix/games/top/',
             {
                 method: 'GET',
                 headers: {
