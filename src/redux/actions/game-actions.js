@@ -6,14 +6,15 @@ import axios from 'axios'
 export const getTopGames = () => async (dispatch) => {
     try {
         dispatch({ type: actionTypes.GET_GAMES_REQUEST });
-        const token = await fetch(`https://id.twitch.tv/oauth2/token?client_id=${process.env.REACT_APP_API_KEY}&client_secret=${process.env.REACT_APP_Client_Secret}&grant_type=client_credentials`,
+        
+        const authtoken = await fetch(`https://id.twitch.tv/oauth2/token?client_id=${process.env.REACT_APP_API_KEY}&client_secret=${process.env.REACT_APP_Client_Secret}&grant_type=client_credentials`,
             {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
             })
-        const token = await response.json()
+        const token = await authtoken.json()
         console.log(token.access_token)
         const response = await fetch('https://api.twitch.tv/helix/games/top',
             {
