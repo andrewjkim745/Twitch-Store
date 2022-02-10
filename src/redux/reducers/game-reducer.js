@@ -23,6 +23,11 @@ export const getTopGamesReducer = (state = { games: {}}, action) => {
             return {
                     games: {}
             }
+            case actionTypes.GET_GAME__DETAILS_SUCCESS:
+                return {
+                    ...state,
+                        game: action.payload
+                }
         default: 
         return state
     }
@@ -35,11 +40,7 @@ export const getGameDetailsReducer = (state = { game: {}}, action) => {
             loading: true,
             game: []
         }
-        case actionTypes.GET_GAME__DETAILS_SUCCESS:
-        return {
-            loading: false,
-            game: action.payload
-        }
+        
         case actionTypes.GET_GAME_DETAILS_FAIL:
             return {
                 loading: false,

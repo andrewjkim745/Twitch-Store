@@ -47,20 +47,10 @@ export const getTopGames = () => async (dispatch) => {
 }
 
 
-export const getGameDetails = (id) => async (dispatch) => {
-    try {
-        dispatch({ type: actionTypes.GET_GAME_DETAILS_REQUEST})
-
-        const {data} = await axios.get(`/game/${id}`);
-
-        dispatch({
-            type: actionTypes.GET_GAME__DETAILS_SUCCESS,
-            payload: data
-        });
-    } catch (error) {
-            dispatch({
-                type: actionTypes.GET_GAME_DETAILS_FAIL,
-                payload: error.response && error.response.data.message ? error.response.data.message : error.message
-        })
+export const getGameDetails = (game) =>  {
+    return {
+        type: actionTypes.GET_GAME__DETAILS_SUCCESS,
+        payload: game
     }
 }
+

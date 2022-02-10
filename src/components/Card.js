@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardHeader, MDBCardText, MDBCardImage, MDBBtn, MDBRipple } from 'mdb-react-ui-kit';
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import { connect } from 'react-redux'
 import 'react-loading-skeleton/dist/skeleton.css'
+import { getGameDetails } from '../redux/actions/game-actions';
 
-export default function Card({src, title, gameId}) {
+function Card ({src, title, getGameDetails, game}) {
   return (
     // <MDBCard>
     //   <Skeleton width={300} height={300} style={loaded ? {display: 'none'} : {}}/>
@@ -29,8 +30,16 @@ export default function Card({src, title, gameId}) {
       </MDBRipple>
       <MDBCardBody style ={{ width: 200, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>
         <MDBCardTitle>{title}</MDBCardTitle>
-        <Link to={`/game/${gameId}`}><MDBBtn>View Game</MDBBtn></Link>
+        <Link to={`/game/${game.id}`}><MDBBtn onClick={()=> getGameDetails(game)}>View Game</MDBBtn></Link>
       </MDBCardBody>
     </MDBCard>
   );
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getGameDetails: (game) => dispatch(getGameDetails(game))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Card);

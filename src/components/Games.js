@@ -35,7 +35,7 @@ function Games({ gamesInfo }) {
                         <div class='col'>
                             <Card
                             key={game.id}
-                            gameInfo={game.id}
+                            game={game}
                             title={game.name}
                             src={game.box_art_url}
                             />

@@ -1,17 +1,15 @@
 import { useState, useEffect} from 'react';
 import { MDBCard, MDBCardTitle, MDBCardText, MDBCardBody, MDBCardImage, MDBRow, MDBCol } from 'mdb-react-ui-kit';
-import { useDispatch, useSelector } from 'react-redux';
-import { getGameDetails } from '../redux/actions/game-actions';
-import { addToCart } from '../redux/actions/shopping-actions';
+import { connect } from 'react-redux'
 
 
 
-export default function SingleGame({  }) {
+function SingleGame({ current }) {
 
 
-  const [qty, setQty] = useState(1)
-  const dispatch = useDispatch();
-  const gameDetails = useSelector(state => state.getGameDetails);
+  useEffect(() => {
+    console.log(current)
+  },[] )
 
   return (
     <MDBCard style={{ maxWidth: '540px' }}>
@@ -35,3 +33,13 @@ export default function SingleGame({  }) {
     </MDBCard>
   );
 }
+
+
+const mapStateToProps = (state) => {
+  return {
+    current: state.getTopGames.game
+  }
+}
+
+
+export default connect(mapStateToProps)(SingleGame)
