@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardHeader, MDBCardText, MDBCardImage, MDBBtn, MDBRipple } from 'mdb-react-ui-kit';
+import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardImage, MDBBtn, MDBRipple } from 'mdb-react-ui-kit';
 import { connect } from 'react-redux'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { getGameDetails } from '../redux/actions/game-actions';

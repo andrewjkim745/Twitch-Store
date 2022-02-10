@@ -1,14 +1,14 @@
 import * as actionTypes from '../constants/shopping-types'
 
 
-export const addToCart = (gameID) => {
-    return {
-        type: actionTypes.ADD_TO_CART,
-        payload: {
-            id: gameID
-        }
-    }
-};
+// export const addToCart = (gameID) => {
+//     return {
+//         type: actionTypes.ADD_TO_CART,
+//         payload: {
+//             id: gameID
+//         }
+//     }
+// };
 
 export const removeFromCart = (gameID) => {
     return {

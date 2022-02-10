@@ -54,3 +54,12 @@ export const getGameDetails = (game) =>  {
     }
 }
 
+export const addToCart = (gameID) => {
+    return {
+      type: actionTypes.ADD_GAME_TO_CART,
+      payload: {
+        id: gameID,
+      },
+    };
+  };
+

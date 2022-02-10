@@ -1,10 +1,10 @@
 import { useState, useEffect} from 'react';
-import { MDBCard, MDBCardTitle, MDBCardText, MDBCardBody, MDBCardImage, MDBRow, MDBCol } from 'mdb-react-ui-kit';
+import { MDBCard, MDBCardTitle, MDBCardText, MDBCardBody, MDBCardImage, MDBRow, MDBCol, MDBBtn} from 'mdb-react-ui-kit';
 import { connect } from 'react-redux'
+import { addToCart } from '../redux/actions/game-actions';
 
 
-
-function SingleGame({ current }) {
+function SingleGame({ current, addToCart }) {
 
 
   useEffect(() => {
@@ -12,21 +12,21 @@ function SingleGame({ current }) {
   },[] )
 
   return (
-    <MDBCard style={{ maxWidth: '540px' }}>
+    <MDBCard style={{marginTop: '6rem', width: '50%'}}>
       <MDBRow className='g-0'>
         <MDBCol md='4'>
-          <MDBCardImage alt='...' fluid />
+          <MDBCardImage src={current.box_art_url}alt='...' fluid />
         </MDBCol>
         <MDBCol md='8'>
           <MDBCardBody>
-            <MDBCardTitle>Card title</MDBCardTitle>
+            <MDBCardTitle>{current.name}</MDBCardTitle>
             <MDBCardText>
-              This is a wider card with supporting text below as a natural lead-in to additional content. This
-              content is a little bit longer.
+              This is game number {current.id}
             </MDBCardText>
             <MDBCardText>
-              <small className='text-muted'>Last updated 3 mins ago</small>
+              <small className='text-muted'>Price is 59.99</small>
             </MDBCardText>
+            <MDBBtn onClick={()=>addToCart(current.id)}>Add to Cart</MDBBtn>
           </MDBCardBody>
         </MDBCol>
       </MDBRow>
@@ -40,6 +40,10 @@ const mapStateToProps = (state) => {
     current: state.getTopGames.game
   }
 }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (id) => dispatch(addToCart(id)),
+  };
+};
 
-
-export default connect(mapStateToProps)(SingleGame)
+export default connect(mapStateToProps, mapDispatchToProps)(SingleGame)
