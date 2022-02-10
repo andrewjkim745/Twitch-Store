@@ -1,5 +1,5 @@
 import { useState, useEffect} from 'react';
-import { MDBCard, MDBCardTitle, MDBCardText, MDBCardBody, MDBCardImage, MDBRow, MDBCol, MDBBtn} from 'mdb-react-ui-kit';
+import { MDBContainer,  MDBCard, MDBCardTitle, MDBCardText, MDBCardBody, MDBCardImage, MDBRow, MDBCol, MDBBtn} from 'mdb-react-ui-kit';
 import { connect } from 'react-redux'
 import { addToCart } from '../redux/actions/game-actions';
 
@@ -12,7 +12,8 @@ function SingleGame({ current, addToCart }) {
   },[] )
 
   return (
-    <MDBCard style={{marginTop: '6rem', width: '50%'}}>
+    <MDBContainer>
+    <MDBCard style={{marginTop: '6rem', width: '100%'}}>
       <MDBRow className='g-0'>
         <MDBCol md='4'>
           <MDBCardImage src={current.box_art_url}alt='...' fluid />
@@ -31,6 +32,7 @@ function SingleGame({ current, addToCart }) {
         </MDBCol>
       </MDBRow>
     </MDBCard>
+    </MDBContainer>
   );
 }
 
