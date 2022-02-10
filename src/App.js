@@ -1,7 +1,7 @@
-
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import './App.css';
 import Games from './components/Games'
-import {Navbar }  from './components/Navbar'
+import Navbar  from './components/Navbar'
 import { Router } from './components/Routes'
 function App() {
   return (

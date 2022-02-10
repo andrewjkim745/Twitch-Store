@@ -1,4 +1,4 @@
-import React, {useState}  from 'react';
+import React, {useState, useEffect }  from 'react';
 import {
     MDBNavbar,
     MDBContainer,
@@ -12,8 +12,21 @@ import {
     MDBRow,
     MDBBadge
 } from 'mdb-react-ui-kit';
+import { connect } from 'react-redux'
 
-export const Navbar = () => {
+const Navbar = ({ cart }) => {
+
+  const [cartCount, setCartCount] = useState(0);
+
+  useEffect(() => {
+    let count = 0;
+    cart.forEach((item) => {
+      count += item.qty;
+    });
+
+    setCartCount(count);
+  }, [cart, cartCount]);
+
     const [showNavColor, setShowNavColor] = useState(false);
   return (
     <>
@@ -41,14 +54,14 @@ export const Navbar = () => {
           <MDBNavbarNav right fullWidth={false} className='ms-auto'>
             <MDBNavbarItem className='active'>
               <MDBNavbarLink  href='/'aria-current='page'>
-              <span>
+              <span className='text-light'>
                 <MDBIcon fas icon='home'></MDBIcon>
               </span>
               </MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem className='active'>
-              <MDBNavbarLink onClick={() => setShowNavColor(!showNavColor)} href='/about' ><MDBBadge pill color='danger'>!</MDBBadge>
-              <span>
+              <MDBNavbarLink onClick={() => setShowNavColor(!showNavColor)} href='/about' ><MDBBadge pill color='danger'>{cartCount}</MDBBadge>
+              <span className='text-light'>
                 <MDBIcon fas icon='shopping-cart'></MDBIcon>
               </span></MDBNavbarLink>
             </MDBNavbarItem>
@@ -59,3 +72,12 @@ export const Navbar = () => {
     </>
   );
 }
+
+
+const mapStateToProps = state => {
+  return {
+    cart: state.getTopGames.cart
+  }
+}
+
+export default connect(mapStateToProps)(Navbar)
