@@ -1,15 +1,23 @@
 import { useState, useEffect} from 'react';
 import { MDBContainer,  MDBCard, MDBCardTitle, MDBCardText, MDBCardBody, MDBCardImage, MDBRow, MDBCol, MDBBtn} from 'mdb-react-ui-kit';
 import { connect } from 'react-redux'
+import { useSelector, useDispatch } from "react-redux";
 import { addToCart } from '../redux/actions/game-actions';
+import { useNavigate } from 'react-router-dom';
 
 
 function SingleGame({ current, addToCart }) {
-
-
+  let navigate = useNavigate();
+  const dispatch = useDispatch();
   useEffect(() => {
     console.log(current)
   },[] )
+  const [qty, setQty] = useState(1);
+  const addToCartHandler = () => {
+    console.log(current.id)
+    dispatch(addToCart(current.id, qty));
+    // navigate(`/`);
+  };
 
   return (
     <MDBContainer>
@@ -27,7 +35,7 @@ function SingleGame({ current, addToCart }) {
             <MDBCardText>
               <small className='text-muted'>Price is 59.99</small>
             </MDBCardText>
-            <MDBBtn color='secondary' onClick={()=>addToCart(current.id)}>Add to Cart</MDBBtn>
+            <MDBBtn color='secondary' onClick={()=>addToCartHandler(current.id)}>Add to Cart</MDBBtn>
           </MDBCardBody>
         </MDBCol>
       </MDBRow>

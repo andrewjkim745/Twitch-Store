@@ -1,4 +1,4 @@
-import React, {useState, useEffect }  from 'react';
+import React, {useState, useEffect}  from 'react';
 import {
     MDBNavbar,
     MDBContainer,
@@ -12,22 +12,24 @@ import {
     MDBRow,
     MDBBadge
 } from 'mdb-react-ui-kit';
+
 import { connect } from 'react-redux'
 
 const Navbar = ({ cart }) => {
-
-  const [cartCount, setCartCount] = useState(0);
-
-  useEffect(() => {
-    let count = 0;
-    cart.forEach((item) => {
-      count += item.qty;
-    });
-
-    setCartCount(count);
-  }, [cart, cartCount]);
-
     const [showNavColor, setShowNavColor] = useState(false);
+
+    const [cartCount, setCartCount] = useState(0);
+
+    useEffect(() => {
+      let count = 0;
+      if (cart) {
+        cart.forEach((item) => {
+        count += item.qty;
+      });
+    }
+  
+      
+    }, [cart, cartCount]);
   return (
     <>
     <MDBRow>
@@ -60,7 +62,7 @@ const Navbar = ({ cart }) => {
               </MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem className='active'>
-              <MDBNavbarLink onClick={() => setShowNavColor(!showNavColor)} href='/about' ><MDBBadge pill color='danger'>{cartCount}</MDBBadge>
+              <MDBNavbarLink onClick={() => setShowNavColor(!showNavColor)} href='/about' ><MDBBadge pill color='danger'>{cart ? cart.length : 0}</MDBBadge>
               <span className='text-light'>
                 <MDBIcon fas icon='shopping-cart'></MDBIcon>
               </span></MDBNavbarLink>
