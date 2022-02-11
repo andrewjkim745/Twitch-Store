@@ -54,12 +54,13 @@ export const getGameDetails = (game) =>  {
     }
 }
 
-export const addToCart = (gameID) => (dispatch, getState) => {
+export const addToCart = (gameID, qty) => (dispatch, getState) => {
     console.log('getstate', getState().getTopGames.cart)
     dispatch ({
       type: actionTypes.ADD_GAME_TO_CART,
       payload: {
         id: gameID,
+        qty,
       },
     }); 
     localStorage.setItem("cart", JSON.stringify(getState().getTopGames.cart))

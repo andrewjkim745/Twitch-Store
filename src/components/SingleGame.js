@@ -10,11 +10,11 @@ function SingleGame({ current, addToCart }) {
   let navigate = useNavigate();
   const dispatch = useDispatch();
   useEffect(() => {
-    console.log(current)
+    console.log('current item data', current)
   },[] )
   const [qty, setQty] = useState(1);
   const addToCartHandler = () => {
-    console.log(current.id)
+    console.log('clicked item', current.id)
     dispatch(addToCart(current.id, qty));
     // navigate(`/`);
   };
