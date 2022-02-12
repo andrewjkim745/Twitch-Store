@@ -23,11 +23,7 @@ export const getTopGamesReducer = (state = { games: {}, cart: []}, action) => {
             return {
                     games: {}
             }
-        case actionTypes.GET_GAME__DETAILS_SUCCESS:
-            return {
-                ...state,
-                game: action.payload
-            }
+
         case actionTypes.ADD_GAME_TO_CART:
             const item = state.games.find(
                 (game) => game.id === action.payload.id
@@ -62,6 +58,11 @@ export const getGameDetailsReducer = (state = { game: {}}, action) => {
             loading: true,
             game: []
         }
+        case actionTypes.GET_GAME__DETAILS_SUCCESS:
+            return {
+                ...state,
+                game: action.payload
+            }
         
         case actionTypes.GET_GAME_DETAILS_FAIL:
             return {

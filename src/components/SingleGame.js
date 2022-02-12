@@ -2,7 +2,7 @@ import { useState, useEffect} from 'react';
 import { MDBContainer,  MDBCard, MDBCardTitle, MDBCardText, MDBCardBody, MDBCardImage, MDBRow, MDBCol, MDBBtn} from 'mdb-react-ui-kit';
 import { connect } from 'react-redux'
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart } from '../redux/actions/game-actions';
+import { addToCart } from '../redux/actions/shopping-actions';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -47,7 +47,7 @@ function SingleGame({ current, addToCart }) {
 
 const mapStateToProps = (state) => {
   return {
-    current: state.getTopGames.game
+    current: state.getGameDetails.game
   }
 }
 const mapDispatchToProps = (dispatch) => {

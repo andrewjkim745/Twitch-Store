@@ -21,16 +21,10 @@ const cartItemsInLocalStorage = localStorage.getItem("cart")
   : [];
 
 const INITIAL_STATE = {
-  getTopGames: {
-    games: []
-  },
+
   shop: {
-    cart: cartItemsInLocalStorage,
-    currentItem: null
+    cart: cartItemsInLocalStorage ? cartItemsInLocalStorage : []
   },
-  getGameDetails: {
-    game: {}
-  }
 };
 const persistConfig = {
     key: 'root',
