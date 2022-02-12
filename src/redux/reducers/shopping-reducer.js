@@ -17,10 +17,7 @@ export const shopReducer = (state = INITIAL_STATE, action) => {
         case actionTypes.ADJUST_QTY:
             return {}
         case actionTypes.LOAD_CURRENT_GAME:
-            return {
-                ...state,
-                currentItem: action.payload
-            }
+            return {}
         default: 
         return state;
     }

@@ -63,6 +63,6 @@ export const addToCart = (gameID, qty) => (dispatch, getState) => {
         qty,
       },
     }); 
-    localStorage.setItem("cart", JSON.stringify(getState().getTopGames.cart))
+    localStorage.setItem(`cart`, JSON.stringify(getState().getTopGames.cart))
   };
 

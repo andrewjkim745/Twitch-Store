@@ -1,15 +1,14 @@
 import * as actionTypes from '../constants/shopping-types'
 
 
-export const addToCart = (gameID, qty) => async (dispatch, getState) => {
-  
-    dispatch ({
+export const addToCart = (gameID) => {
+    return {
         type: actionTypes.ADD_TO_CART,
         payload: {
-          id: gameID,
-          qty,
-        },
-      }); 
+            id: gameID
+        }
+    }
+};
 
 export const removeFromCart = (gameID) => {
     return {

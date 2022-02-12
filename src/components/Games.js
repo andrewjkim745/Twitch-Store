@@ -1,31 +1,31 @@
 import React, { useState, useEffect } from 'react'
-import api from '../api'
 import Card from './Card'
 import { MDBContainer } from 'mdb-react-ui-kit';
 import { useSelector, useDispatch } from 'react-redux';
 import { getTopGames as listTopGames } from '../redux/actions/game-actions';
-import Skeleton from 'react-loading-skeleton';
-import { render } from '@testing-library/react';
-import { connect } from "react-redux";
+import { getGameDetails as listTopGameDetails } from '../redux/actions/game-actions';
 import { Rings } from 'react-loader-spinner'
 
 
-function Games({ gamesInfo }) {
+export default function Games() {
 
 
 
     const [done, setDone] = useState(false)
     const dispatch = useDispatch()
     const getTopGames = useSelector((state) => state.getTopGames);
+    const getGameDetails = useSelector((state) => state.getGameDetails)
     const { games, loading, error } = getTopGames;
+    const { game } = getGameDetails
 
     useEffect(() => {
         dispatch(listTopGames())
+        dispatch(listTopGameDetails())
+        console.log(game)
         setDone(true)
     }, [dispatch])
 
     return (
-
         <>
             {done ?
                 <div class='d-flex flex-column align-items-center mt-5'>
@@ -52,11 +52,3 @@ function Games({ gamesInfo }) {
         </>
     )
 }
-
-const mapStateToProps = (state) => {
-    return {
-        gamesInfo: state.shop.games,
-    };
-};
-
-export default connect(mapStateToProps)(Games);

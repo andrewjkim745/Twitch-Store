@@ -12,8 +12,7 @@ export const getTopGamesReducer = (state = { games: {}, cart: []}, action) => {
         case actionTypes.GET_GAMES_SUCCESS:
         return {
             loading: false,
-            games: action.payload,
-            cart: []
+            games: action.payload
         }
         case actionTypes.GET_GAMES_FAIL:
             return {
@@ -49,6 +48,7 @@ export const getTopGamesReducer = (state = { games: {}, cart: []}, action) => {
                         : item
                     )
                   : [...state.cart, { ...item, qty: 1 }],
+                  
               }
         default: 
         return state

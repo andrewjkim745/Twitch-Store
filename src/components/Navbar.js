@@ -20,13 +20,20 @@ const Navbar = ({ cart }) => {
 
     const [cartCount, setCartCount] = useState(0);
 
-    useEffect(() => {
-      let count = 0;
-      if (cart) {
-        cart.forEach((item) => {
-        count += item.qty;
-      });
+
+    const getCart = () => {
+      // let keys = Object.values(localStorage)
+      // console.log('cart', keys)
     }
+
+    useEffect(() => {
+    //   let count = 0;
+    //   if (cart) {
+    //     cart.forEach((item) => {
+    //     count += item.qty;
+    //   });
+    // }
+    // getCart()
   
       
     }, [cart, cartCount]);
