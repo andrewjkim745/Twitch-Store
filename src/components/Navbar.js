@@ -27,12 +27,13 @@ const Navbar = ({ cart }) => {
     }
 
     useEffect(() => {
-    //   let count = 0;
-    //   if (cart) {
-    //     cart.forEach((item) => {
-    //     count += item.qty;
-    //   });
-    // }
+      console.log(cart)
+      let count = 0;
+      if (cart) {
+        cart.forEach((item) => {
+        count += item.qty;
+      });
+    }
     // getCart()
   
       
@@ -85,7 +86,7 @@ const Navbar = ({ cart }) => {
 
 const mapStateToProps = state => {
   return {
-    cart: state.getTopGames.cart
+    cart: state.shop.cart
   }
 }
 
