@@ -12,6 +12,7 @@ import {
     MDBRow,
     MDBBadge
 } from 'mdb-react-ui-kit';
+import { Link } from 'react-router-dom';
 
 import { connect } from 'react-redux'
 
@@ -20,12 +21,6 @@ const Navbar = ({ cart }) => {
 
     const [cartCount, setCartCount] = useState(0);
 
-
-    const getCart = () => {
-      // let keys = Object.values(localStorage)
-      // console.log('cart', keys)
-    }
-
     useEffect(() => {
       console.log(cart)
       let count = 0;
@@ -33,8 +28,8 @@ const Navbar = ({ cart }) => {
         cart.forEach((item) => {
         count += item.qty;
       });
+      setCartCount(count)
     }
-    // getCart()
   
       
     }, [cart, cartCount]);
@@ -70,10 +65,12 @@ const Navbar = ({ cart }) => {
               </MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem className='active'>
-              <MDBNavbarLink onClick={() => setShowNavColor(!showNavColor)} href='/about' ><MDBBadge pill color='danger'>{cart ? cart.length : 0}</MDBBadge>
+              <MDBNavbarLink href='/cart' onClick={() => setShowNavColor(!showNavColor)} >
+                <MDBBadge pill color='danger'>{cart ? cartCount : 0}</MDBBadge>
               <span className='text-light'>
                 <MDBIcon fas icon='shopping-cart'></MDBIcon>
-              </span></MDBNavbarLink>
+              </span>
+              </MDBNavbarLink>
             </MDBNavbarItem>
           </MDBNavbarNav>
         </MDBCollapse>

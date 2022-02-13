@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart } from '../redux/actions/shopping-actions';
 import { useNavigate } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 
 function SingleGame({ current, addToCart }) {
   let navigate = useNavigate();
@@ -36,6 +36,7 @@ function SingleGame({ current, addToCart }) {
               <small className='text-muted'>Price is 59.99</small>
             </MDBCardText>
             <MDBBtn color='secondary' onClick={()=>addToCartHandler(current.id)}>Add to Cart</MDBBtn>
+            <Link to='/cart'><MDBBtn>Go to Cart</MDBBtn></Link>
           </MDBCardBody>
         </MDBCol>
       </MDBRow>
