@@ -12,10 +12,6 @@ export default function CartCards({ src, title }) {
           <MDBCardBody>
             <MDBCardTitle>{title}</MDBCardTitle>
             <MDBCardText>
-              This is a wider card with supporting text below as a natural lead-in to additional content. This
-              content is a little bit longer.
-            </MDBCardText>
-            <MDBCardText>
               <small className='text-muted'>Price is 59.99</small>
             </MDBCardText>
           </MDBCardBody>
