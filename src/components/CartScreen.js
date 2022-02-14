@@ -23,7 +23,7 @@ export default function CartScreen() {
 
     return (
         <MDBContainer>
-        <h2>Shopping Cart</h2>
+        <h2 className='mt-3'>Shopping Cart</h2>
 
         {cart.length === 0 ? (
             <div>
