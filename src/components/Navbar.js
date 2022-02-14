@@ -66,10 +66,11 @@ const Navbar = ({ cart }) => {
             </MDBNavbarItem>
             <MDBNavbarItem className='active'>
               <MDBNavbarLink href='/cart' onClick={() => setShowNavColor(!showNavColor)} >
-                <MDBBadge pill color='danger'>{cart ? cartCount : 0}</MDBBadge>
-              <span className='text-light'>
+                
+              <span className='text-light me-2'>
                 <MDBIcon fas icon='shopping-cart'></MDBIcon>
               </span>
+              <MDBBadge pill color='danger'>{cart ? cartCount : 0}</MDBBadge>
               </MDBNavbarLink>
             </MDBNavbarItem>
           </MDBNavbarNav>

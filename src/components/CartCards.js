@@ -1,8 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { MDBBtn, MDBIcon, MDBCard, MDBCardTitle, MDBCardText, MDBCardBody, MDBCardImage, MDBRow, MDBCol } from 'mdb-react-ui-kit';
 
-export default function CartCards({ src, title }) {
+export default function CartCards({ qty, title, src, removeHandler, qtyChangeHandler }) {
+
+
+
+    useEffect(() => {
+        console.log('cart games',qty)
+    }, [])
   return (
+
+    
     <MDBCard className='mt-3'>
       <MDBRow className='g-0'>
         <MDBCol md='4'>
@@ -17,8 +25,17 @@ export default function CartCards({ src, title }) {
           </MDBCardBody>
         </MDBCol>
         <MDBCol md='4'>
-            <div className='p-4 d-flex justify-content-end'>
-            <MDBIcon size='2x'fas icon='trash-alt'></MDBIcon>
+            <div className='p-4 h-100 d-flex justify-content-end'>
+                <div className='d-flex flex-column'>
+                <MDBIcon onClick={removeHandler} size='3x'fas icon='trash-alt'></MDBIcon>
+            <select value={qty} className='mt-3'>
+                {[...Array(qty).keys()].map((x) => (
+                    <option key={x+1}value={x+1}>
+                        {x+1}
+                    </option>
+                ))}
+            </select>
+                </div>
             </div>
         </MDBCol>
       </MDBRow>

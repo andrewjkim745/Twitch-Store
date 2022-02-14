@@ -18,6 +18,9 @@ export default function CartScreen() {
         console.log('cart screen', cart)
     }, [])
 
+    const qtyChangeHandler = (id, qty) => {
+        dispatch(addToCart(id, qty));
+      };
 
 
 
@@ -32,10 +35,12 @@ export default function CartScreen() {
           ) : (
             
             cart.map((game) => (
+            
               <CartCards
                 key={game.id}
                 title={game.name}
                 src={game.box_art_url}
+                qty={game.qty}
               />
             ))
           )}

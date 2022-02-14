@@ -24,9 +24,9 @@ function SingleGame({ current, addToCart }) {
     <MDBCard border='secondary' style={{marginTop: '6rem', width: '100%'}}>
       <MDBRow className='g-0'>
         <MDBCol md='4'>
-          <MDBCardImage src={current.box_art_url}alt='...' fluid />
+          <MDBCardImage className='h-100 w-100' src={current.box_art_url}alt='...' fluid />
         </MDBCol>
-        <MDBCol md='4'>
+        <MDBCol md='8'>
           <MDBCardBody>
             <MDBCardTitle>{current.name}</MDBCardTitle>
             <MDBCardText>
@@ -35,8 +35,13 @@ function SingleGame({ current, addToCart }) {
             <MDBCardText>
               <small className='text-muted'>Price is 59.99</small>
             </MDBCardText>
+            <div className='d-flex justify-content-between w-50'>
             <MDBBtn color='secondary' onClick={()=>addToCartHandler(current.id)}>Add to Cart</MDBBtn>
-            <Link to='/cart'><MDBBtn>Go to Cart</MDBBtn></Link>
+            <Link to='/cart'>
+              <MDBBtn>Go to Cart</MDBBtn>
+            </Link>
+            </div>
+            
           </MDBCardBody>
         </MDBCol>
       </MDBRow>
