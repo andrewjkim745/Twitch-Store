@@ -28,7 +28,7 @@ export default function CartCards({ qty, title, src, removeHandler, qtyChangeHan
             <div className='p-4 h-100 d-flex justify-content-end'>
                 <div className='d-flex flex-column'>
                 <MDBIcon onClick={removeHandler} size='3x'fas icon='trash-alt'></MDBIcon>
-            <select value={qty} className='mt-3'>
+            <select value={qty} onChange={qtyChangeHandler} className='mt-3'>
                 {[...Array(qty).keys()].map((x) => (
                     <option key={x+1}value={x+1}>
                         {x+1}

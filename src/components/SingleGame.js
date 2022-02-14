@@ -16,7 +16,6 @@ function SingleGame({ current, addToCart }) {
   const addToCartHandler = () => {
     console.log('clicked item', current.id)
     dispatch(addToCart(current.id, qty));
-    // navigate(`/`);
   };
 
   return (
