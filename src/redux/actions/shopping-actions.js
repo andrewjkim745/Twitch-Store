@@ -16,13 +16,15 @@ export const addToCart = (gameID, qty) => (dispatch, getState) => {
     localStorage.setItem("cart", JSON.stringify(item));
   };
 
-export const removeFromCart = (gameID) => {
-    return {
+export const removeFromCart = (gameID) => (dispatch, getState) => {
+    const item = getState().getTopGames.games.find((game) => game.id === gameID);
+    dispatch({
         type: actionTypes.REMOVE_FROM_CART,
         payload: {
-            id: gameID,
+            item: item,
         }
-    }
+    });
+    localStorage.setItem("cart", JSON.stringify(item));
 }
 
 export const adjustQty = (gameID, qty) => (dispatch, getState) => {
@@ -31,8 +33,7 @@ export const adjustQty = (gameID, qty) => (dispatch, getState) => {
         type: actionTypes.ADJUST_QTY,
         payload: {
           item: item,
-          qty,
-          
+          qty, 
         },
       }); 
       localStorage.setItem("cart", JSON.stringify(item));

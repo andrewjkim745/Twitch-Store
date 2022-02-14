@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect} from 'react';
 import CartCards from "./CartCards";
-import { adjustQty } from "../redux/actions/shopping-actions";
+import { adjustQty, removeFromCart } from "../redux/actions/shopping-actions";
 import { Link } from "react-router-dom";
 import { MDBContainer } from "mdb-react-ui-kit";
 
@@ -24,6 +24,9 @@ export default function CartScreen() {
 
       };
 
+      const removeFromCartHandler = (id) => {
+        dispatch(removeFromCart(id));
+      };
 
 
     return (
@@ -43,6 +46,7 @@ export default function CartScreen() {
                 src={game.box_art_url}
                 qty={game.qty}
                 qtyChangeHandler={(e)=> qtyChangeHandler(game.id, e.target.value)}
+                removeFromCartHandler={()=>removeFromCartHandler(game.id)}
               />
             ))
           )}

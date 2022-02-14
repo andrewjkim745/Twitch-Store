@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import { MDBBtn, MDBIcon, MDBCard, MDBCardTitle, MDBCardText, MDBCardBody, MDBCardImage, MDBRow, MDBCol } from 'mdb-react-ui-kit';
 
-export default function CartCards({ qty, title, src, removeHandler, qtyChangeHandler }) {
+export default function CartCards({ qty, title, src, removeFromCartHandler, qtyChangeHandler }) {
 
 
 
@@ -27,9 +27,9 @@ export default function CartCards({ qty, title, src, removeHandler, qtyChangeHan
         <MDBCol md='4'>
             <div className='p-4 h-100 d-flex justify-content-end'>
                 <div className='d-flex flex-column'>
-                <MDBIcon onClick={removeHandler} size='3x'fas icon='trash-alt'></MDBIcon>
+                <MDBIcon onClick={removeFromCartHandler} size='3x'fas icon='trash-alt'></MDBIcon>
             <select value={qty} onChange={qtyChangeHandler} className='mt-3'>
-                {[...Array(qty === 1 || 2 ? qty+9 : qty).keys()].map((x) => (
+                {[...Array(qty === 1 || 2 ? qty=10 : qty).keys()].map((x) => (
                     <option key={x+1}value={x+1}>
                         {x+1}
                     </option>
