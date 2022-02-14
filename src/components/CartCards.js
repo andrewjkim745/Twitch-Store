@@ -6,7 +6,7 @@ export default function CartCards({ qty, title, src, removeHandler, qtyChangeHan
 
 
     useEffect(() => {
-        console.log('cart games',qty)
+        console.log('cart games', qty)
     }, [])
   return (
 
@@ -29,7 +29,7 @@ export default function CartCards({ qty, title, src, removeHandler, qtyChangeHan
                 <div className='d-flex flex-column'>
                 <MDBIcon onClick={removeHandler} size='3x'fas icon='trash-alt'></MDBIcon>
             <select value={qty} onChange={qtyChangeHandler} className='mt-3'>
-                {[...Array(qty).keys()].map((x) => (
+                {[...Array(qty === 1 || 2 ? qty+9 : qty).keys()].map((x) => (
                     <option key={x+1}value={x+1}>
                         {x+1}
                     </option>

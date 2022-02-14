@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect} from 'react';
 import CartCards from "./CartCards";
-import { addToCart } from "../redux/actions/shopping-actions";
+import { adjustQty } from "../redux/actions/shopping-actions";
 import { Link } from "react-router-dom";
 import { MDBContainer } from "mdb-react-ui-kit";
 
@@ -10,8 +10,6 @@ export default function CartScreen() {
     const dispatch = useDispatch();
 
     const cart = useSelector((state) => state.shop.cart)
-
-    const { cartItems } = cart;
     
     
     useEffect(() => {
@@ -20,8 +18,10 @@ export default function CartScreen() {
 
     
 
-    const qtyChangeHandler = (id, qty) => {
-        dispatch(addToCart(id, qty));
+    const qtyChangeHandler = ( id, qty) => {
+        console.log('event target', qty)
+        dispatch(adjustQty(id, qty));
+
       };
 
 
@@ -37,7 +37,6 @@ export default function CartScreen() {
           ) : (
             
             cart.map((game) => (
-            
               <CartCards
                 key={game.id}
                 title={game.name}

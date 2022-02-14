@@ -25,15 +25,30 @@ export const shopReducer = (state = INITIAL_STATE, action) => {
                 cart: inCart
                   ? state.cart.map((item) =>
                       item.id === action.payload.item.id
-                        ? { ...item, qty: item.qty + 1 }
+                        ? 
+                        
+                        { ...item, qty: item.qty + 1 }
                         : item
                     )
                   : [...state.cart, { ...item, qty: 1 }],
               }
         case actionTypes.REMOVE_FROM_CART:
-            return {}
+            return {
+                
+            }
         case actionTypes.ADJUST_QTY:
-            return {}
+            console.log('action payload',action.payload.item)
+        
+            return {
+                ...state,
+                cart: state.cart.map((item) =>
+                item.id === action.payload.item.id
+                  ? { ...item, qty: +action.payload.qty }
+                  : item
+              ),
+
+                
+            }
         case actionTypes.LOAD_CURRENT_GAME:
             return {}
         default: 
