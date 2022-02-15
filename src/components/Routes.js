@@ -18,7 +18,6 @@ export const Router = () => {
     return (
         <BrowserRouter>
             <Routes>
-
                 <Route path='/'
                     element={<Games/>} />
                 <Route path='/game/:id'
