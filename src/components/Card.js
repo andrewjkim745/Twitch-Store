@@ -9,7 +9,7 @@ function Card ({src, title, getGameDetails, game}) {
   return (
         <MDBCard>
       <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
-        <MDBCardImage src={src} fluid alt='...' />
+        <MDBCardImage style={{ width: '100%'}}src={src} fluid alt='...' />
         <a>
           <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}></div>
         </a>

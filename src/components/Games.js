@@ -28,7 +28,7 @@ export default function Games() {
     return (
         <>
             {done ?
-                <div class='d-flex flex-column align-items-center mt-5'>
+                <div data-aos='fade-up' class='d-flex flex-column align-items-center my-5 mb8'>
                     <div class="container">
                         <h1 class='text-align-center'>Top 20 games on Twitch</h1>
                         <div class='row'>

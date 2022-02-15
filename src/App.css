@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+html {
+    min-height: 100vh;
+    position: relative;
+
+}
+body {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.mb8 {
+    margin-bottom: 20rem !important;
+}

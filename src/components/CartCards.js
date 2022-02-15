@@ -15,7 +15,7 @@ export default function CartCards({ gameID, qty, title, src, removeFromCartHandl
       <MDBRow className='g-0'>
         <MDBCol md='4'>
         <Link to={`/game/${gameID}`}>
-          <MDBCardImage src={src} alt='...' fluid />
+          <MDBCardImage style={{width: '100%', height: '100%'}}src={src} alt='...' fluid />
           </Link>
         </MDBCol>
         <MDBCol md='4'>

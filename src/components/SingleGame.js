@@ -5,22 +5,32 @@ import { useSelector, useDispatch } from "react-redux";
 import { addToCart } from '../redux/actions/shopping-actions';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import useWindowDimensions from './windowDimensions';
 
 function SingleGame({ current, addToCart }) {
+  
+
+  const { height, width } = useWindowDimensions();
+
+
   let navigate = useNavigate();
   const dispatch = useDispatch();
+
+
   useEffect(() => {
-    console.log('current item data', current)
   },[] )
+
+
+
   const [qty, setQty] = useState(1);
   const addToCartHandler = () => {
-    console.log('clicked item', current.id)
     dispatch(addToCart(current.id, qty));
+    alert('Added to Cart!')
   };
 
   return (
     <MDBContainer>
-    <MDBCard border='secondary' style={{marginTop: '6rem', width: '100%'}}>
+    <MDBCard border='secondary' className='my-5'>
       <MDBRow className='g-0'>
         <MDBCol md='4'>
           <MDBCardImage className='h-100 w-100' src={current.box_art_url}alt='...' fluid />
@@ -34,8 +44,8 @@ function SingleGame({ current, addToCart }) {
             <MDBCardText>
               <small className='text-muted'>Price is 59.99</small>
             </MDBCardText>
-            <div className='d-flex justify-content-between w-50'>
-            <MDBBtn color='secondary' onClick={()=>addToCartHandler(current.id)}>Add to Cart</MDBBtn>
+            <div className='d-flex justify-content-between'>
+            {width < 768 ? <MDBIcon onClick={()=>addToCartHandler(current.id)} size='2x' fas icon='cart-plus'/> : <MDBBtn color='secondary' onClick={()=>addToCartHandler(current.id)}>Add to Cart</MDBBtn>}
             <Link to='/cart'>
               <MDBBtn>Go to Cart</MDBBtn>
             </Link>
