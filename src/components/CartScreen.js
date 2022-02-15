@@ -48,7 +48,7 @@ export default function CartScreen() {
 
     return (
 
-        <MDBContainer data-aos='fade-in'>
+        <MDBContainer data-aos='fade-in' className="mb8">
             <MDBRow>
             <MDBCol md='7'>
                 <h2 className='mt-3'>Shopping Cart</h2>

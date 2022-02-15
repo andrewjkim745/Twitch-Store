@@ -30,7 +30,7 @@ function SingleGame({ current, addToCart }) {
 
   return (
     <MDBContainer>
-    <MDBCard border='secondary' className='my-5'>
+    <MDBCard border='secondary' className='my-5 mb8'>
       <MDBRow className='g-0'>
         <MDBCol md='4'>
           <MDBCardImage className='h-100 w-100' src={current.box_art_url}alt='...' fluid />
