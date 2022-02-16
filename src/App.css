@@ -3,11 +3,19 @@
 html {
     min-height: 100vh;
     position: relative;
+    margin:0;
+    width: 100%;
+    padding:0;
+    overflow-x: hidden;
 
 }
 body {
+    width: 100%;
     font-family: 'Josefin Sans', sans-serif;
-}
+    margin:0;
+    padding:0;
+    overflow-x: hidden;
+} 
 
 .mb8 {
     margin-bottom: 20rem !important;
