@@ -20,7 +20,6 @@ export default function CartScreen() {
 
 
     const qtyChangeHandler = (id, qty) => {
-        console.log('event target', qty)
         dispatch(adjustQty(id, qty));
 
     };
