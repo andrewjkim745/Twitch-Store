@@ -14,7 +14,6 @@ export default function CartScreen() {
 
 
     useEffect(() => {
-        console.log('cart screen', cart)
     }, [])
 
 
