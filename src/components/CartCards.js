@@ -6,7 +6,7 @@ export default function CartCards({ gameID, qty, title, src, removeFromCartHandl
 
 
     useEffect(() => {
-        console.log('cart games', qty)
+       
     }, [])
   return (
 
